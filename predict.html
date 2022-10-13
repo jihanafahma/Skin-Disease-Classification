@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Skin Lesions Classification</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg bg-433c89">
+	 <div class="container-fluid">
+	  <a class="navbar-brand text-light" href="home.html">Skin Lesions Classification</a>
+	  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+	   <span class="navbar-toggler-icon"></span>
+	  </button>
+	  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+	   <div class="navbar-nav">
+	    <a class="nav-link text-light" href="home.html">Home</a>
+	    <a class="nav-link text-light" href="predict.html">Predict</a>
+	   </div>
+	  </div>
+	 </div>
+	</nav>
+	<center>
+		<div class="pt-5 text-light">
+		 <h1>Skin Lesions Classification</h1>
+		 <p>Please insert skin lesion image that you want to predict.</p>
+		 <div class="col-6">
+		  <div class="d-grid gap-2 col-6 mx-auto">
+		   <img src="images/insert-image.jpg" class="rounded-2" alt="" id="img" width="100%" height="300px" />
+		   <input type="file" accept="image/*" id="fu" onchange="loadFile(event)" style="width: 0;">
+		   <input class="btn bg-433c89 text-light" type="button" onclick="document.getElementById('fu').click()" value="Browse an Image" />
+		   <span id="fileName"></span>
+		   <button class="btn bg-433c89 text-light" type="button" onclick="predict();">Predict</button>
+		  </div>
+		  <div class="p-5">
+		   <h2>Prediction : <span id="result"></span></h2>
+		  </div>
+		 </div>
+		</div>
+	</center>
+	<nav class=" fixed-bottom bg-433c89 text-light">
+	    <div class="text-center p-3">
+	      © 2022 Copyright: Jihanafahma
+	    </div>
+	</nav>
+</body>
+<script>
+	var loadFile = function (event) {
+	var image = document.getElementById("img");
+	image.src = URL.createObjectURL(event.target.files[0]);
+	 };
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js"> </script>
+<script src="classifier.js"></script>
+</html>
